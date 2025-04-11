@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Auction House</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://placehold.co/32" sizes="32x32">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #f1f5ff 0%, #00040c 100%);
+            min-height: 100vh;
+        }
+        
+        .form-container {
+            backdrop-filter: blur(10px);
+            background: rgba(17, 24, 39, 0.8);
+        }
+        
+        .input-field:focus {
+            box-shadow: 0 0 0 3px rgba(20, 26, 36, 0.959);
+        }
+        
+        .strength-meter {
+            height: 3px;
+            background: #e5e7eb;
+            margin-top: 8px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .strength-meter-fill {
+            height: 100%;
+            width: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .modal {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* X (Twitter) brand color */
+        .btn-twitter {
+            background-color: #000000;
+            border-color: #000000;
+        }
+        
+        .btn-twitter:hover {
+            background-color: #1a1a1a;
+        }
+        
+        /* TikTok brand color */
+        .btn-tiktok {
+            background: linear-gradient(to right, #000000, #000000, #FE2C55);
+            border-color: transparent;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-tiktok:hover {
+            opacity: 0.9;
+        }
+        
+        .btn-tiktok i {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="text-white flex items-center justify-center p-4">
+    <!-- Main Form Container -->
+    <div class="form-container rounded-xl shadow-2xl overflow-hidden w-full max-w-md border border-gray-700">
+        <div class="p-8">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold mb-2 text-gray-100">Welcome Back</h1>
+                <p class="text-gray-400">Login to your Auction House account</p>
+            </div>
+            
+            <!-- Social Login Buttons -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <button class="btn-twitter flex items-center justify-center gap-2 text-white py-2.5 px-4 rounded-lg border transition-all duration-300">
+                    <i class="fab fa-twitter"></i>
+                    <span class="hidden sm:inline">X (Twitter)</span>
+                </button>
+                <button class="btn-tiktok flex items-center justify-center gap-2 text-white py-2.5 px-4 rounded-lg border transition-all duration-300">
+                    <i class="fab fa-tiktok"></i>
+                    <span class="hidden sm:inline">TikTok</span>
+                </button>
+                <button class="flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-gray-300 py-2.5 px-4 rounded-lg border border-gray-700 transition-all duration-300">
+                    <i class="fab fa-google text-red-500"></i>
+                    <span class="hidden sm:inline">Google</span>
+                </button>
+                <button class="flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-gray-300 py-2.5 px-4 rounded-lg border border-gray-700 transition-all duration-300">
+                    <i class="fab fa-facebook-f text-blue-500"></i>
+                    <span class="hidden sm:inline">Facebook</span>
+                </button>
+            </div>
+            
+            <div class="flex items-center my-6">
+                <div class="flex-grow border-t border-gray-700"></div>
+                <span class="mx-4 text-gray-500 text-sm">OR</span>
+                <div class="flex-grow border-t border-gray-700"></div>
+            </div>
+            
+            <!-- Rest of your form remains the same -->
+            <form id="loginForm" class="space-y-6">
+                <!-- Email Field -->
+                <div>
+                    <label for="loginEmail" class="block text-sm font-medium mb-2 text-gray-300">Email Address</label>
+                    <div class="relative">
+                        <input type="email" id="loginEmail" name="email" required
+                               class="input-field w-full px-4 py-3 rounded-lg bg-gray-900 bg-opacity-70 border border-gray-700 focus:outline-none text-gray-200 placeholder-gray-500"
+                               placeholder="your@email.com">
+                        <i class="fas fa-envelope absolute right-3 top-3.5 text-gray-500"></i>
+                    </div>
+                </div>
+                
+                <!-- Password Field with Strength Meter -->
+                <div>
+                    <label for="loginPassword" class="block text-sm font-medium mb-2 text-gray-300">Password</label>
+                    <div class="relative">
+                        <input type="password" id="loginPassword" name="password" required
+                               class="input-field w-full px-4 py-3 rounded-lg bg-gray-900 bg-opacity-70 border border-gray-700 focus:outline-none text-gray-200 placeholder-gray-500 pr-10"
+                               placeholder="Enter password">
+                        <i class="fas fa-eye-slash absolute right-3 top-3.5 text-gray-500 cursor-pointer hover:text-gray-400" id="toggleLoginPassword"></i>
+                    </div>
+                    <div class="strength-meter hidden" id="strengthMeter">
+                        <div class="strength-meter-fill" id="strengthMeterFill"></div>
+                    </div>
+                    <div class="flex justify-end mt-1">
+                        <button type="button" onclick="openForgotPasswordModal()" class="text-xs text-yellow-400 hover:underline">Forgot password?</button>
+                    </div>
+                </div>
+                
+                <!-- Remember Me Checkbox -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input type="checkbox" id="remember" name="remember"
+                                   class="w-4 h-4 rounded bg-gray-900 border-gray-600 focus:ring-yellow-500 focus:ring-2 text-yellow-500">
+                        </div>
+                        <label for="remember" class="ml-2 text-sm text-gray-400">
+                            Remember me
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit"
+                        class="w-full bg-gradient-to-r from-gray-400 to-black-600 text-gray-900 py-3 px-4 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                    Login
+                </button>
+                
+                <!-- Sign Up Link -->
+                <div class="text-center text-sm text-gray-400">
+                    Don't have an account? 
+                    <a href="/pages/signup.html" class="text-white font-medium hover:underline">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal (same as before) -->
+    <div id="forgotPasswordModal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="form-container rounded-xl shadow-2xl w-full max-w-md mx-4 relative z-10 border border-gray-700">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-100">Reset Password</h3>
+                    <button onclick="closeForgotPasswordModal()" class="text-gray-400 hover:text-gray-300">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="text-gray-400 mb-6">Enter your email to receive a password reset link</p>
+                <form id="forgotPasswordForm">
+                    <div class="mb-4">
+                        <label for="resetEmail" class="block text-sm font-medium mb-2 text-gray-300">Email Address</label>
+                        <input type="email" id="resetEmail" required
+                               class="w-full px-4 py-3 rounded-lg bg-gray-900 bg-opacity-70 border border-gray-700 focus:outline-none text-gray-200 placeholder-gray-500">
+                    </div>
+                    <button type="submit"
+                            class="w-full bg-gradient-to-r from-gray-400 to-white-600 text-gray-900 py-3 px-4 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 mb-4">
+                        Send Reset Link
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript (same as before) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Password toggle functionality
+            const togglePassword = document.getElementById('toggleLoginPassword');
+            const password = document.getElementById('loginPassword');
+            const strengthMeter = document.getElementById('strengthMeter');
+            const strengthMeterFill = document.getElementById('strengthMeterFill');
+            
+            if (togglePassword && password) {
+                togglePassword.addEventListener('click', function() {
+                    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                    password.setAttribute('type', type);
+                    this.classList.toggle('fa-eye-slash');
+                    this.classList.toggle('fa-eye');
+                });
+            }
+            
+            // Password strength meter
+            if (password && strengthMeter && strengthMeterFill) {
+                password.addEventListener('input', function() {
+                    const password = this.value;
+                    if (password.length > 0) {
+                        strengthMeter.classList.remove('hidden');
+                        const strength = calculatePasswordStrength(password);
+                        updateStrengthMeter(strength);
+                    } else {
+                        strengthMeter.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Form validation
+            const loginForm = document.getElementById('loginForm');
+            const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+            
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('loginEmail').value;
+                    const password = document.getElementById('loginPassword').value;
+                    
+                    if (!email || !password) {
+                        alert('Please fill in all fields');
+                        return;
+                    }
+                    
+                    alert('Login successful! Redirecting...');
+                });
+            }
+            
+            if (forgotPasswordForm) {
+                forgotPasswordForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('resetEmail').value;
+                    if (!email) {
+                        alert('Please enter your email');
+                        return;
+                    }
+                    alert(`Password reset link sent to ${email}`);
+                    closeForgotPasswordModal();
+                });
+            }
+        });
+        
+        function calculatePasswordStrength(password) {
+            let strength = 0;
+            if (password.length > 7) strength += 1;
+            if (password.length > 11) strength += 1;
+            if (/[A-Z]/.test(password)) strength += 1;
+            if (/[0-9]/.test(password)) strength += 1;
+            if (/[^A-Za-z0-9]/.test(password)) strength += 1;
+            return Math.min(strength, 5);
+        }
+        
+        function updateStrengthMeter(strength) {
+            const strengthMeterFill = document.getElementById('strengthMeterFill');
+            if (!strengthMeterFill) return;
+            
+            const colors = ['bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-blue-500', 'bg-green-500'];
+            const widths = ['20%', '40%', '60%', '80%', '100%'];
+            
+            strengthMeterFill.classList.remove(
+                'bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-blue-500', 'bg-green-500'
+            );
+            
+            strengthMeterFill.classList.add(colors[strength - 1]);
+            strengthMeterFill.style.width = widths[strength - 1];
+        }
+        
+        function openForgotPasswordModal() {
+            const modal = document.getElementById('forgotPasswordModal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                setTimeout(() => {
+                    modal.querySelector('div[class*="rounded-xl"]').classList.remove('opacity-0', 'translate-y-4');
+                }, 10);
+            }
+        }
+        
+        function closeForgotPasswordModal() {
+            const modal = document.getElementById('forgotPasswordModal');
+            if (modal) {
+                modal.querySelector('div[class*="rounded-xl"]').classList.add('opacity-0', 'translate-y-4');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }, 300);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Item - Auction House</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://via.placeholder.com/32" sizes="32x32">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Custom CSS for Animations and Transitions -->
+    <link href="/css/style.css" rel="stylesheet">
+
+</head>
+<body class="text-white">
+
+    <!-- Video Background -->
+    <video autoplay muted loop class="video-background">
+        <source src="/assests/ticking clock.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Dark Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Header with Navigation -->
+    <header class="header-gradient">
+        <div class="container mx-auto flex justify-between items-center p-4 flex-wrap">
+            <!-- Logo -->
+            <h1 class="text-2xl font-bold text-white flex-shrink-0">Auction House</h1>
+            
+            <!-- Navigation Menu -->
+            <nav class="flex items-center space-x-6 mt-4 md:mt-0">
+                <ul class="flex space-x-6">
+                    <li><a href="/index.html" class="hover:text-yellow-400">Home</a></li>
+                    <li><a href="/pages/auction.html" class="hover:text-yellow-400">Auctions</a></li>
+                    <li><a href="/pages/Sellpage.html" class="hover:text-yellow-400">Sell</a></li>
+                    <li><a href="/pages/about.html" class="hover:text-yellow-400">About</a></li>
+                    <li><a href="/pages/Contact.html" class="hover:text-yellow-400">Contact</a></li>
+                </ul>
+                <!-- Sign-Up Button -->
+                <a href="#" class="gradient-bg text-white px-4 py-2 rounded-lg flex-shrink-0">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero content fade-in">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-6xl  mb-4 mt-8">Auction Your Item</h2>
+            <p class="text-xl text-gray-300 mb-8">List your item for auction and reach thousands of buyers worldwide.</p>
+        </div>
+    </section>
+
+    <!-- Sell Form -->
+    <main class="container mx-auto mt-8 p-4 content fade-in">
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm shadow-lg rounded-lg p-6">
+            <!-- Step 1: Item Details -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold mb-4">Item Details</h3>
+                <form>
+                    <!-- Item Name -->
+                    <div class="mb-4">
+                        <label for="itemName" class="block text-gray-300 mb-2">Item Name</label>
+
+<input type="text" id="itemName" name="itemName" class="w-full p-2 rounded-lg bg-white bg-opacity-20 text-white placeholder-gray-300 focus:outline-none" placeholder="Enter item name">
+                    </div>
+                    <!-- Item Description -->
+                    <div class="mb-4">
+                        <label for="itemDescription" class="block text-gray-300 mb-2">Item Description</label>
+                        <textarea id="itemDescription" name="itemDescription" class="w-full p-2 rounded-lg bg-white bg-opacity-20 text-white placeholder-gray-300 focus:outline-none" rows="4" placeholder="Describe your item"></textarea>
+                    </div>
+                    <!-- Item Category -->
+                    <div class="mb-4">
+                        <label for="itemCategory" class="block text-gray-300 mb-2">Category</label>
+                        <select id="itemCategory" name="itemCategory" class="w-full p-2 rounded-lg bg-white bg-opacity-20 text-blue-400 placeholder-gray-300 focus:outline-none">
+                            <option value="">Select a category</option>
+                            <option value="art">Art</option>
+                            <option value="jewelry">Jewelry</option>
+                            <option value="antiques">Antiques</option>
+                            <option value="collectibles">Collectibles</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 2: Upload Images -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold mb-4">Upload Images</h3>
+                <div class="image-upload">
+                    <p class="text-gray-300">Drag and drop images here or <span class="text-yellow-400">click to upload</span></p>
+                    <input type="file" id="itemImages" name="itemImages" class="hidden" multiple>
+                </div>
+            </div>
+
+            <!-- Step 3: Pricing and Duration -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold mb-4">Pricing and Duration</h3>
+                <form>
+                    <!-- Starting Price -->
+                    <div class="mb-4">
+                        <label for="startingPrice" class="block text-gray-300 mb-2">Starting Price</label>
+                        <input type="number" id="startingPrice" name="startingPrice" class="w-full p-2 rounded-lg bg-white bg-opacity-35 text-black placeholder-blue-400 focus:outline-none" placeholder="Enter starting price">
+                    </div>
+                    <!-- Auction Duration -->
+                    <div class="mb-4">
+                        <label for="auctionDuration" class="block text-gray-300 mb-2">Auction Duration</label>
+                        <select id="auctionDuration" name="auctionDuration" class="w-full p-2 rounded-lg bg-white bg-opacity-35 text-blue-400 placeholder-blue-400 focus:outline-none">
+                            <option value="1">1 Day</option>
+                            <option value="3">3 Days</option>
+                            <option value="7">7 Days</option>
+                            <option value="14">14 Days</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Submit Button -->
+            <button class="gradient-bg text-white px-8 py-3 rounded-lg w-full">List Item for Auction</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-transparent p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-300">&copy; 2025 Auction House. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
