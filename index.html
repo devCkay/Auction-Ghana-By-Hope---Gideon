@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="https://placehold.co/32" sizes="32x32">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
     <div class="overlay"></div>
 
     <!-- Header with Navigation -->
-    <header class="header-gradient sticky top-0 z-50">
+    <header class="sticky top-0 z-50 bg-black bg-opacity-80" style="border-bottom: 2px solid white"></header>
         <div class="container mx-auto flex justify-between items-center p-4 flex-wrap">
             <!-- Logo Area -->
             <div class="flex items-center space-x-2">
@@ -67,14 +67,14 @@
                 <!-- Auth Buttons -->
                 <div class="flex space-x-4">
                     <a href="/pages/login.html" class="border border-white text-white hover:bg-white hover:text-gray-900 px-4 py-2 rounded-lg transition duration-300">Login</a>
-                    <a href="/pages/signup.html" class="gradient-bg text-white px-4 py-2 rounded-lg">Sign Up</a>
+                    <a href="/pages/signup.html" class="bg-black text-white px-4 py-2 rounded-lg">Sign Up</a>
                 </div>
                 
                 <!-- Dark Mode Toggle -->
-                <button id="dark-mode-toggle" class="p-2 rounded-full bg-white bg-opacity-20 ml-4">
+                <!-- <button id="dark-mode-toggle" class="p-2 rounded-full bg-white bg-opacity-20 ml-4">
                     <i class="fas fa-moon text-gray-800"></i>
                     <i class="fas fa-sun text-gray-800 hidden"></i>
-                </button>
+                </button> -->
             </nav>
         </div>
     </header>
@@ -82,8 +82,8 @@
     <!-- Hero Section -->
     <section class="hero content py-20">
         <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="1000">
-            <h2 class="text-5xl font-bold mb-4">Discover Rare Treasures</h2>
-            <p class="text-xl text-gray-300 mb-8">Join the world's most exclusive auctions and bid on unique items from around the globe.</p>
+            <h2 class="text-5xl font-bold mb-4 font-['Noto Sans']">Discover Rare Treasures</h2>
+            <p class="text-xl text-gray-300 mb-8 font-['Noto Sans']">Join the world's most exclusive auctions and bid on unique items from around the globe.</p>
             <!-- Search Bar -->
             <form class="max-w-md mx-auto">
                 <div class="flex">
@@ -165,7 +165,7 @@
                             <span class="text-sm text-gray-400">Ends in: 2h 45m</span>
                             <span class="text-lg font-bold text-yellow-400">$4,200</span>
                         </div>
-                        <button class="gradient-bg text-white px-4 py-2 rounded w-full mt-4">Place Bid</button>
+                        <button class="bg-white text-black px-4 py-2 rounded w-full mt-4">Place Bid</button>
                     </div>
                 </div>
                 
@@ -179,7 +179,7 @@
                             <span class="text-sm text-gray-400">Ends in: 1d 7h</span>
                             <span class="text-lg font-bold text-yellow-400">$2,850</span>
                         </div>
-                        <button class="gradient-bg text-white px-4 py-2 rounded w-full mt-4">Place Bid</button>
+                        <button class="bg-white text-black px-4 py-2 rounded w-full mt-4">Place Bid</button>
                     </div>
                 </div>
                 
@@ -193,7 +193,7 @@
                             <span class="text-sm text-gray-400">Ends in: 3d 12h</span>
                             <span class="text-lg font-bold text-yellow-400">$1,750</span>
                         </div>
-                        <button class="gradient-bg text-white px-4 py-2 rounded w-full mt-4">Place Bid</button>
+                        <button class="bg-white text-black px-4 py-2 rounded w-full mt-4">Place Bid</button>
                     </div>
                 </div>
                 
@@ -207,7 +207,7 @@
                             <span class="text-sm text-gray-400">Ends in: 4d 6h</span>
                             <span class="text-lg font-bold text-yellow-400">$950</span>
                         </div>
-                        <button class="gradient-bg text-white px-4 py-2 rounded w-full mt-4">Place Bid</button>
+                        <button class="bg-white text-black px-4 py-2 rounded w-full mt-4">Place Bid</button>
                     </div>
                 </div>
             </div>
