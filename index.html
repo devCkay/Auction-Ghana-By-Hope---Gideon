@@ -29,39 +29,52 @@
     <div class="overlay"></div>
 
     <!-- Header with Navigation -->
-    <header class="sticky top-0 z-50 bg-black bg-opacity-80" style="border-bottom: 2px solid white"></header>
-        <div class="container mx-auto flex justify-between items-center p-4 flex-wrap">
+    <header class="sticky top-0 z-50 bg-black bg-opacity-80 border-b-2 border-white">
+        <style>
+            /* Hide login / sign up links on small screens */
+            @media (max-width: 767px) {
+                a[href="/pages/login.html"],
+                a[href="/pages/signup.html"] {
+                    display: none !important;
+                }
+            }
+        </style>
+
+        <div class="container mx-auto flex items-center justify-between p-4 flex-wrap">
             <!-- Logo Area -->
-            <div class="flex items-center space-x-2">
-                <img src="/assests/Auction Ghana logo 2.png" alt="Logo" class="w-30 h-10">
-                <h1 class="text-2xl font-bold text-black-400"></h1>
+            <div class="flex items-center space-x-3">
+                <a href="/index.html" class="flex items-center">
+                    <img src="/assests/Auction Ghana logo 2.png" alt="Auction Ghana" class="w-32 h-auto">
+                    <span class="ml-3 text-white text-2xl font-bold">Auction Gh</span>
+                </a>
             </div>
-            
-            <!-- Navigation Menu -->
-            <nav class="flex items-center space-x-6 mt-4 md:mt-0">
+
+            <nav class="flex items-center space-x-6">
                 <!-- Mobile menu button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Toggle navigation">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
-                
+
                 <!-- Desktop Menu -->
-                <ul class="hidden md:flex space-x-6">
-                    <li><a href="/index.html" class="hover:text-gray-900">Home</a></li>
-                    <li><a href="/pages/auction.html" class="hover:text-gray-900">Auctions</a></li>
-                    <li><a href="/pages/Sellpage.html" class="hover:text-gray-900">Sell</a></li>
-                    <li><a href="/pages/about.html" class="hover:text-gray-900">About</a></li>
-                    <li><a href="/pages/Contact.html" class="hover:text-gray-900">Contact</a></li>
+                <ul class="hidden md:flex space-x-6 text-white">
+                    <li><a href="/index.html" class="hover:text-yellow-400">Home</a></li>
+                    <li><a href="/pages/auction.html" class="hover:text-yellow-400">Auctions</a></li>
+                    <li><a href="/pages/Sellpage.html" class="hover:text-yellow-400">Sell</a></li>
+                    <li><a href="/pages/about.html" class="hover:text-yellow-400">About</a></li>
+                    <li><a href="/pages/Contact.html" class="hover:text-yellow-400">Contact</a></li>
                 </ul>
-                
-                <!-- Mobile Menu -->
-                <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 right-0 bg-gray-900 z-50 p-4">
-                    <ul class="space-y-4">
-                        <li><a href="/index.html" class="block hover:text-yellow-400">Home</a></li>
-                        <li><a href="/pages/auction.html" class="block hover:text-yellow-400">Auctions</a></li>
-                        <li><a href="/pages/Sellpage.html" class="block hover:text-yellow-400">Sell</a></li>
-                        <li><a href="/pages/about.html" class="block hover:text-yellow-400">About</a></li>
-                        <li><a href="/pages/Contact.html" class="block hover:text-yellow-400">Contact</a></li>
-                    </ul>
+
+                <!-- Mobile Menu (hidden by default, toggled by button) -->
+                <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-gray-900 z-50 md:hidden">
+                    <div class="container mx-auto p-4">
+                        <ul class="space-y-4 text-white">
+                            <li><a href="/index.html" class="block hover:text-yellow-400">Home</a></li>
+                            <li><a href="/pages/auction.html" class="block hover:text-yellow-400">Auctions</a></li>
+                            <li><a href="/pages/Sellpage.html" class="block hover:text-yellow-400">Sell</a></li>
+                            <li><a href="/pages/about.html" class="block hover:text-yellow-400">About</a></li>
+                            <li><a href="/pages/Contact.html" class="block hover:text-yellow-400">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <!-- Auth Buttons -->
