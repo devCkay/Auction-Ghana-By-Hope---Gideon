@@ -90,5 +90,23 @@ h1, h2, h3 {
     .process-step:hover {
         transform: translateY(-10px);
     }
-
     
+     .auction-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .process-step:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Mobile menu */
+        #mobile-menu {
+            transition: max-height 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        #mobile-menu.active {
+            max-height: 500px;
+        }

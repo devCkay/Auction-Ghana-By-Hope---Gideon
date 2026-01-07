@@ -4,153 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auction House - Industry Standard</title>
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://placehold.co/32" sizes="32x32">
-
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <link href="/css/main.css" rel="stylesheet">
+      
 </head>
-<body class="text-white">
+<body class="text-white bg-black">
 
-    <!-- Video Background -->
-    <video autoplay muted loop class="video-background">
-        <source src="/assests/Time background.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+    <video autoplay muted loop playsinline class="video-background">
+        <source src="/assests/ticking clock.mp4" type="video/mp4">
     </video>
-    <!-- Dark Overlay -->
     <div class="overlay"></div>
 
-    <!-- Header with Navigation -->
-    <header class="sticky top-0 z-50 bg-black bg-opacity-80 border-b-2 border-white">
-        <style>
-            /* Hide login / sign up links on small screens */
-            @media (max-width: 767px) {
-                a[href="/pages/login.html"],
-                a[href="/pages/signup.html"] {
-                    display: none !important;
-                }
-            }
-        </style>
-
-        <div class="container mx-auto flex items-center justify-between p-4 flex-wrap">
-            <!-- Logo Area -->
-            <div class="flex items-center space-x-3">
-                <a href="/index.html" class="flex items-center">
-                    <img src="/assests/Auction Ghana logo 2.png" alt="Auction Ghana" class="w-32 h-auto">
-                    <span class="ml-3 text-white text-2xl font-bold">Auction Gh</span>
+    <!-- Streamlined Responsive Header -->
+    <header class="sticky top-0 z-50 bg-black bg-opacity-90 border-b border-white border-opacity-20 backdrop-blur-sm">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="/index.html" class="flex items-center space-x-3">
+                    <img src="https://placehold.co/120x40/667eea/white?text=AuctionGh" alt="Auction Ghana" class="h-10">
                 </a>
-            </div>
 
-            <nav class="flex items-center space-x-6">
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Toggle navigation">
+                <!-- Desktop Navigation - Single Line -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="/index.html" class="hover:text-yellow-400 transition-colors">Home</a>
+                    <a href="/pages/auction.html" class="hover:text-yellow-400 transition-colors">Auctions</a>
+                    <a href="/pages/Sellpage.html" class="hover:text-yellow-400 transition-colors">Sell</a>
+                    <a href="/pages/about.html" class="hover:text-yellow-400 transition-colors">About</a>
+                    <a href="/pages/Contact.html" class="hover:text-yellow-400 transition-colors">Contact</a>
+                    <a href="/pages/login.html" class="border border-white hover:bg-white hover:text-black px-4 py-2 rounded-lg transition-all">Login</a>
+                    <a href="/pages/signup.html" class="gradient-bg text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">Sign Up</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-toggle" class="lg:hidden text-white focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
+            </div>
 
-                <!-- Desktop Menu -->
-                <ul class="hidden md:flex space-x-6 text-white">
-                    <li><a href="/index.html" class="hover:text-yellow-400">Home</a></li>
-                    <li><a href="/pages/auction.html" class="hover:text-yellow-400">Auctions</a></li>
-                    <li><a href="/pages/Sellpage.html" class="hover:text-yellow-400">Sell</a></li>
-                    <li><a href="/pages/about.html" class="hover:text-yellow-400">About</a></li>
-                    <li><a href="/pages/Contact.html" class="hover:text-yellow-400">Contact</a></li>
-                </ul>
-
-                <!-- Mobile Menu (hidden by default, toggled by button) -->
-                <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-gray-900 z-50 md:hidden">
-                    <div class="container mx-auto p-4">
-                        <ul class="space-y-4 text-white">
-                            <li><a href="/index.html" class="block hover:text-yellow-400">Home</a></li>
-                            <li><a href="/pages/auction.html" class="block hover:text-yellow-400">Auctions</a></li>
-                            <li><a href="/pages/Sellpage.html" class="block hover:text-yellow-400">Sell</a></li>
-                            <li><a href="/pages/about.html" class="block hover:text-yellow-400">About</a></li>
-                            <li><a href="/pages/Contact.html" class="block hover:text-yellow-400">Contact</a></li>
-                        </ul>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden">
+                <div class="pt-4 pb-2 space-y-3">
+                    <a href="/index.html" class="block hover:text-yellow-400 transition-colors py-2">Home</a>
+                    <a href="/pages/auction.html" class="block hover:text-yellow-400 transition-colors py-2">Auctions</a>
+                    <a href="/pages/Sellpage.html" class="block hover:text-yellow-400 transition-colors py-2">Sell</a>
+                    <a href="/pages/about.html" class="block hover:text-yellow-400 transition-colors py-2">About</a>
+                    <a href="/pages/Contact.html" class="block hover:text-yellow-400 transition-colors py-2">Contact</a>
+                    <div class="pt-3 flex flex-col space-y-2">
+                        <a href="/pages/login.html" class="border border-white hover:bg-white hover:text-black px-4 py-2 rounded-lg transition-all text-center">Login</a>
+                        <a href="/pages/signup.html" class="gradient-bg text-white px-4 py-2 rounded-lg text-center">Sign Up</a>
                     </div>
                 </div>
-                
-                <!-- Auth Buttons -->
-                <div class="flex space-x-4">
-                    <a href="/pages/login.html" class="border border-white text-white hover:bg-white hover:text-gray-900 px-4 py-2 rounded-lg transition duration-300">Login</a>
-                    <a href="/pages/signup.html" class="bg-black text-white px-4 py-2 rounded-lg">Sign Up</a>
-                </div>
-                
-                <!-- Dark Mode Toggle -->
-                <!-- <button id="dark-mode-toggle" class="p-2 rounded-full bg-white bg-opacity-20 ml-4">
-                    <i class="fas fa-moon text-gray-800"></i>
-                    <i class="fas fa-sun text-gray-800 hidden"></i>
-                </button> -->
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero content py-20">
-        <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="1000">
-            <h2 class="text-5xl font-bold mb-4 font-['Noto Sans']">Discover Rare Treasures</h2>
-            <p class="text-xl text-gray-300 mb-8 font-['Noto Sans']">Join the world's most exclusive auctions and bid on unique items from around the globe.</p>
-            <!-- Search Bar -->
-            <form class="max-w-md mx-auto">
-                <div class="flex">
-                    <input type="text" placeholder="Search for auctions..." class="w-full p-3 rounded-l-lg bg-white bg-opacity-20 text-white placeholder-gray-300 focus:outline-none">
-                    <button type="submit" class="gradient-bg text-white px-6 rounded-r-lg">Search</button>
+    <section class="hero content py-32">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">Discover Rare Treasures</h1>
+            <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">Join the world's most exclusive auctions and bid on unique items from around the globe.</p>
+            
+            <div class="max-w-2xl mx-auto mb-8">
+                <div class="flex rounded-lg overflow-hidden shadow-2xl">
+                    <input type="text" placeholder="Search for auctions..." class="flex-1 p-4 bg-white bg-opacity-20 backdrop-blur-sm text-white placeholder-gray-300 focus:outline-none">
+                    <button class="gradient-bg text-white px-8 hover:opacity-90 transition-opacity">Search</button>
                 </div>
-            </form>
-            <!-- Call-to-Action Button -->
-            <div class="mt-8 text-center">
-                <a href="#" class="gradient-bg text-white px-8 py-3 rounded-lg inline-block">Explore Auctions</a>
             </div>
+            
+            <a href="/pages/auction.html" class="gradient-bg text-white px-10 py-4 rounded-lg inline-block text-lg hover:opacity-90 transition-opacity">Explore Auctions</a>
         </div>
     </section>
 
     <!-- Finished Auctions Section -->
-    <section class="py-16 content bg-black">
-        <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="1000">
-            <h2 class="text-3xl font-bold mb-12 text-center">Finished Auctions</h2>
+    <section class="py-20 content bg-black bg-opacity-80">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-16 text-center">Finished Auctions</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Auction Card 1 -->
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg overflow-hidden auction-card" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://placehold.co/400x300" alt="Auction Item" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/400x300/1a1a2e/eee?text=Vintage+Rolex" alt="Vintage Rolex" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Vintage Rolex Watch</h3>
+                        <h3 class="text-2xl font-bold mb-2">Vintage Rolex Watch</h3>
                         <p class="text-gray-300 mb-4">1956 Submariner in excellent condition</p>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-400">Ended: March 28, 2025</span>
-                            <span class="text-lg font-bold text-green-400">$24,500</span>
+                            <span class="text-2xl font-bold text-green-400">$24,500</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Auction Card 2 -->
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg overflow-hidden auction-card" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://placehold.co/400x300" alt="Auction Item" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/400x300/1a1a2e/eee?text=Painting" alt="Painting" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Impressionist Painting</h3>
+                        <h3 class="text-2xl font-bold mb-2">Impressionist Painting</h3>
                         <p class="text-gray-300 mb-4">Original canvas from emerging artist</p>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-400">Ended: March 25, 2025</span>
-                            <span class="text-lg font-bold text-green-400">$18,750</span>
+                            <span class="text-2xl font-bold text-green-400">$18,750</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Auction Card 3 -->
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg overflow-hidden auction-card" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://placehold.co/400x300" alt="Auction Item" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/400x300/1a1a2e/eee?text=Book" alt="Book" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">First Edition Book</h3>
+                        <h3 class="text-2xl font-bold mb-2">First Edition Book</h3>
                         <p class="text-gray-300 mb-4">Signed by the author, mint condition</p>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-400">Ended: March 20, 2025</span>
-                            <span class="text-lg font-bold text-green-400">$9,200</span>
+                            <span class="text-2xl font-bold text-green-400">$9,200</span>
                         </div>
                     </div>
                 </div>
@@ -159,68 +124,62 @@
     </section>
 
     <!-- Current Auctions Section -->
-    <section class="py-16 content bg-gradient-to-r from-black to-gray-900 bg-opacity-80">
-        <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="1000">
-            <h2 class="text-3xl font-bold mb-12 text-center">Current Auctions</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Current Auction Card 1 -->
+    <section class="py-20 content">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-16 text-center">Current Auctions</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg overflow-hidden auction-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="relative">
-                        <img src="https://placehold.co/400x300" alt="Auction Item" class="w-full h-48 object-cover">
-                        <div class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 text-xs font-bold">
-                            Ending Soon
-                        </div>
+                        <img src="https://placehold.co/400x300/667eea/eee?text=Watch" alt="Watch" class="w-full h-48 object-cover">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 text-xs font-bold rounded-full">Ending Soon</div>
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold mb-2">Antique Pocket Watch</h3>
-                        <p class="text-gray-300 mb-2 text-sm">18k gold, Swiss movement</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-400">Ends in: 2h 45m</span>
-                            <span class="text-lg font-bold text-yellow-400">$4,200</span>
+                        <p class="text-gray-300 mb-3 text-sm">18k gold, Swiss movement</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs text-gray-400">Ends in: 2h 45m</span>
+                            <span class="text-xl font-bold text-yellow-400">$4,200</span>
                         </div>
-                        <button class="bg-white text-black px-4 py-2 rounded w-full mt-4">Place Bid</button>
+                        <button class="bg-white text-black px-4 py-2 rounded-lg w-full font-semibold hover:bg-gray-200 transition-colors">Place Bid</button>
                     </div>
                 </div>
                 
-                <!-- Current Auction Card 2 -->
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg overflow-hidden auction-card" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://placehold.co/400x300" alt="Auction Item" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/400x300/764ba2/eee?text=Camera" alt="Camera" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-bold mb-2">Vintage Camera</h3>
-                        <p class="text-gray-300 mb-2 text-sm">Leica M3, includes original case</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-400">Ends in: 1d 7h</span>
-                            <span class="text-lg font-bold text-yellow-400">$2,850</span>
+                        <p class="text-gray-300 mb-3 text-sm">Leica M3, includes original case</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs text-gray-400">Ends in: 1d 7h</span>
+                            <span class="text-xl font-bold text-yellow-400">$2,850</span>
                         </div>
-                        <button class="bg-white text-black px-4 py-2 rounded w-full mt-4">Place Bid</button>
+                        <button class="bg-white text-black px-4 py-2 rounded-lg w-full font-semibold hover:bg-gray-200 transition-colors">Place Bid</button>
                     </div>
                 </div>
                 
-                <!-- Current Auction Card 3 -->
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg overflow-hidden auction-card" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://placehold.co/400x300" alt="Auction Item" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/400x300/667eea/eee?text=Lamp" alt="Lamp" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-bold mb-2">Art Deco Lamp</h3>
-                        <p class="text-gray-300 mb-2 text-sm">1920s, stained glass shade</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-400">Ends in: 3d 12h</span>
-                            <span class="text-lg font-bold text-yellow-400">$1,750</span>
+                        <p class="text-gray-300 mb-3 text-sm">1920s, stained glass shade</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs text-gray-400">Ends in: 3d 12h</span>
+                            <span class="text-xl font-bold text-yellow-400">$1,750</span>
                         </div>
-                        <button class="bg-white text-black px-4 py-2 rounded w-full mt-4">Place Bid</button>
+                        <button class="bg-white text-black px-4 py-2 rounded-lg w-full font-semibold hover:bg-gray-200 transition-colors">Place Bid</button>
                     </div>
                 </div>
                 
-                <!-- Current Auction Card 4 -->
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg overflow-hidden auction-card" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="https://placehold.co/400x300" alt="Auction Item" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/400x300/764ba2/eee?text=Vinyl" alt="Vinyl" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-bold mb-2">Rare Vinyl Record</h3>
-                        <p class="text-gray-300 mb-2 text-sm">First pressing, mint condition</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-400">Ends in: 4d 6h</span>
-                            <span class="text-lg font-bold text-yellow-400">$950</span>
+                        <p class="text-gray-300 mb-3 text-sm">First pressing, mint condition</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs text-gray-400">Ends in: 4d 6h</span>
+                            <span class="text-xl font-bold text-yellow-400">$950</span>
                         </div>
-                        <button class="bg-white text-black px-4 py-2 rounded w-full mt-4">Place Bid</button>
+                        <button class="bg-white text-black px-4 py-2 rounded-lg w-full font-semibold hover:bg-gray-200 transition-colors">Place Bid</button>
                     </div>
                 </div>
             </div>
@@ -228,43 +187,39 @@
     </section>
 
     <!-- How It Works Section -->
-    <section class="py-16 content">
-        <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="1000">
-            <h2 class="text-3xl font-bold mb-12 text-center">How The Platform Works</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Step 1 -->
-                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center process-step" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-gray-700 rounded-full flex items-center justify-center">
-                        <i class="fas fa-user-plus text-2xl"></i>
+    <section class="py-20 content bg-black bg-opacity-80">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-16 text-center">How The Platform Works</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-8 text-center process-step transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto mb-6 gradient-bg rounded-full flex items-center justify-center">
+                        <i class="fas fa-user-plus text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Register to Buy/Bid</h3>
+                    <h3 class="text-xl font-bold mb-3">Register to Buy/Bid</h3>
                     <p class="text-gray-300">Create an account to start bidding on exclusive items</p>
                 </div>
                 
-                <!-- Step 2 -->
-                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center process-step" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-gray-700 rounded-full flex items-center justify-center">
-                        <i class="fas fa-tag text-2xl"></i>
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-8 text-center process-step transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto mb-6 gradient-bg rounded-full flex items-center justify-center">
+                        <i class="fas fa-tag text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Sell/Auction</h3>
+                    <h3 class="text-xl font-bold mb-3">Sell/Auction</h3>
                     <p class="text-gray-300">List your valuable items for auction to our global audience</p>
                 </div>
                 
-                <!-- Step 3 -->
-                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center process-step" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-gray-700 rounded-full flex items-center justify-center">
-                        <i class="fas fa-gavel text-2xl"></i>
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-8 text-center process-step transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 mx-auto mb-6 gradient-bg rounded-full flex items-center justify-center">
+                        <i class="fas fa-gavel text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Submit Bid</h3>
+                    <h3 class="text-xl font-bold mb-3">Submit Bid</h3>
                     <p class="text-gray-300">Place competitive bids on items you want to acquire</p>
                 </div>
                 
-                <!-- Step 4 -->
-                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center process-step" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-green-600 rounded-full flex items-center justify-center">
-                        <i class="fas fa-trophy text-2xl"></i>
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-8 text-center process-step transition-all" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-green-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-trophy text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Win/Purchase</h3>
+                    <h3 class="text-xl font-bold mb-3">Win/Purchase</h3>
                     <p class="text-gray-300">Complete the transaction and receive your item securely</p>
                 </div>
             </div>
@@ -272,31 +227,21 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 pt-12 pb-6">
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
         <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-between">
-                <!-- Company Info Column -->
-                <div class="w-full md:w-1/4 mb-8 md:mb-0">
-                    <h3 class="text-white text-xl font-bold mb-4">Auction House</h3>
-                    <p class="mb-4">Premier auction services for fine art, antiques, and collectibles since 2024.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="text-white text-2xl font-bold mb-4">Auction Gh</h3>
+                    <p class="mb-6">Premier auction services for fine art, antiques, and collectibles since 2024.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin-in text-xl"></i></a>
                     </div>
                 </div>
                 
-                <!-- Quick Links Column -->
-                <div class="w-full md:w-1/4 mb-8 md:mb-0">
+                <div>
                     <h4 class="text-white text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="/index.html" class="hover:text-white transition-colors">Home</a></li>
@@ -307,9 +252,8 @@
                     </ul>
                 </div>
                 
-                <!-- Auction Categories -->
-                <div class="w-full md:w-1/4 mb-8 md:mb-0">
-                    <h4 class="text-white text-lg font-semibold mb-4">Auction Categories</h4>
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-4">Categories</h4>
                     <ul class="space-y-2">
                         <li><a href="#" class="hover:text-white transition-colors">Fine Art</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Antiques</a></li>
@@ -319,8 +263,7 @@
                     </ul>
                 </div>
                 
-                <!-- Contact Info -->
-                <div class="w-full md:w-1/4">
+                <div>
                     <h4 class="text-white text-lg font-semibold mb-4">Contact Us</h4>
                     <ul class="space-y-3">
                         <li class="flex items-start">
@@ -333,53 +276,41 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-3"></i>
-                            <span>info@auctionhouse.com</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-clock mr-3"></i>
-                            <span>Mon-Sat: 6AM - 12PM<br>Sun: 10AM - 4PM</span>
+                            <span>info@auctiongh.com</span>
                         </li>
                     </ul>
                 </div>
             </div>
             
-            <!-- Footer Bottom -->
-            <div class="border-t border-gray-800 mt-8 pt-6">
+            <div class="border-t border-gray-800 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2025 Auction Gh. All rights reserved.</p>
                     <div class="flex space-x-6">
                         <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Privacy Policy</a>
                         <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Terms of Service</a>
                         <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Cookie Policy</a>
-                        <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Sitemap</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Initialize AOS (Animate On Scroll)
         AOS.init({
             duration: 800,
             easing: 'ease-in-out',
-            once: true,
-            mirror: false
+            once: true
         });
         
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
         
-        // Dark Mode Toggle
-        document.getElementById('dark-mode-toggle').addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-            document.querySelector('.fa-moon').classList.toggle('hidden');
-            document.querySelector('.fa-sun').classList.toggle('hidden');
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
     </script>
 </body>
