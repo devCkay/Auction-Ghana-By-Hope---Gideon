@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auction Page - Auction House</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://via.placeholder.com/32" sizes="32x32">
-    <!-- Tailwind CSS -->
+    <link rel="icon" type="image/svg+xml" href="/assests/SVG/logo-green.svg" sizes="any">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="/css/auction.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link href="/css/main.css" rel="stylesheet">
 </head>
 
-<body class="text-white">
+<body class="text-white bg-black">
 
     <!-- Video Background -->
     <video autoplay muted loop class="video-background">
@@ -22,37 +22,54 @@
     <!-- Dark Overlay -->
     <div class="overlay"></div>
 
-    <!-- Header with Navigation -->
-    <header class="header-gradient">
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <h1 class="text-2xl font-bold text-white">Auction House</h1>
-            <!-- Navigation Menu -->
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="/index.html" class="hover:text-gray-900">Home</a></li>
-                    <li><a href="/pages/auction.html" class="hover:text-gray-900">Auctions</a></li>
-                    <li><a href="/pages/Sellpage.html" class="hover:text-gray-900">Sell</a></li>
-                    <li><a href="/pages/about.html" class="hover:text-gray-900">About</a></li>
-                    <li><a href="/pages/Contact.html" class="hover:text-gray-900">Contact</a></li>
-                    <!-- Login Dropdown Menu -->
-                    <li class="relative">
-                        <button id="loginDropdown" class="gradient-bg text-white px-4 py-2 rounded-lg flex items-center">
-                            Login
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <!-- Dropdown Menu -->
-                        <div id="loginDropdownMenu" class="absolute right-0 mt-2 w-48 bg-white bg-opacity-80 backdrop-blur-sm rounded-lg shadow-lg py-2 hidden z-10">
-                            <a href="/pages/login.html" class="block px-4 py-2 text-black hover:bg-gray-200">Login</a>
-                            <a href="/pages/my-auctions.html" class="block px-4 py-2 text-black hover:bg-gray-200">My Auctions</a>
-                            <a href="/pages/history.html" class="block px-4 py-2 text-black hover:bg-gray-200">History</a>
-                            <a href="/pages/dashboard.html" class="block px-4 py-2 text-black hover:bg-gray-200">Dashboard</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Streamlined Responsive Header -->
+    <header class="sticky top-0 z-50 bg-black bg-opacity-90 border-b border-white border-opacity-20 backdrop-blur-sm">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center">
+                <!-- Logo -->
+                <div class="flex-1">
+                    <a href="/index.html" class="flex items-center space-x-3">
+                        <img src="/assests/SVG/logo-white.svg" alt="Auction Ghana" class="h-16">
+                        <span class="text-white font-bold text-lg" style="font-family: 'Noto Sans', sans-serif;">Auction Ghana</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation - Centered -->
+                <div class="hidden lg:flex items-center space-x-8 flex-1 justify-center">
+                    <a href="/index.html" class="hover:text-yellow-400 transition-colors">Home</a>
+                    <a href="/pages/auction.html" class="hover:text-yellow-400 transition-colors">Auctions</a>
+                    <a href="/pages/Sellpage.html" class="hover:text-yellow-400 transition-colors">Sell</a>
+                    <a href="/pages/about.html" class="hover:text-yellow-400 transition-colors">About</a>
+                    <a href="/pages/Contact.html" class="hover:text-yellow-400 transition-colors">Contact</a>
+                </div>
+
+                <!-- Login/Signup - Right -->
+                <div class="hidden lg:flex items-center space-x-4 flex-1 justify-end">
+                    <a href="/pages/login.html" class="border border-white hover:bg-white hover:text-black px-4 py-2 rounded-lg transition-all">Login</a>
+                    <a href="/pages/signup.html" class="gradient-bg text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">Sign Up</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-toggle" class="lg:hidden text-white focus:outline-none ml-4">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden">
+                <div class="pt-4 pb-2 space-y-3">
+                    <a href="/index.html" class="block hover:text-yellow-400 transition-colors py-2">Home</a>
+                    <a href="/pages/auction.html" class="block hover:text-yellow-400 transition-colors py-2">Auctions</a>
+                    <a href="/pages/Sellpage.html" class="block hover:text-yellow-400 transition-colors py-2">Sell</a>
+                    <a href="/pages/about.html" class="block hover:text-yellow-400 transition-colors py-2">About</a>
+                    <a href="/pages/Contact.html" class="block hover:text-yellow-400 transition-colors py-2">Contact</a>
+                    <div class="pt-3 flex flex-col space-y-2">
+                        <a href="/pages/login.html" class="border border-white hover:bg-white hover:text-black px-4 py-2 rounded-lg transition-all text-center">Login</a>
+                        <a href="/pages/signup.html" class="gradient-bg text-white px-4 py-2 rounded-lg text-center">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Auction Page Content -->
@@ -146,21 +163,22 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Dropdown Menu -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Toggle dropdown when clicking the login button
-        document.getElementById('loginDropdown').addEventListener('click', function() {
-            document.getElementById('loginDropdownMenu').classList.toggle('hidden');
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
         });
         
-        // Close the dropdown when clicking outside
-        window.addEventListener('click', function(event) {
-            if (!event.target.matches('#loginDropdown') && !event.target.closest('#loginDropdown')) {
-                var dropdown = document.getElementById('loginDropdownMenu');
-                if (!dropdown.classList.contains('hidden')) {
-                    dropdown.classList.add('hidden');
-                }
-            }
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
     </script>
 

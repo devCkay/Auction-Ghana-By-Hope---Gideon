@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sell Your Item - Auction House</title>
-    <link rel="icon" type="image/png" href="https://placehold.co/32" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/assests/SVG/logo-green.svg" sizes="any">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link href="/css/main.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body class="text-white bg-black">
@@ -17,36 +19,47 @@
     </video>
     <div class="overlay"></div>
 
-    <!-- Header -->
+    <!-- Streamlined Responsive Header -->
     <header class="sticky top-0 z-50 bg-black bg-opacity-90 border-b border-white border-opacity-20 backdrop-blur-sm">
         <nav class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <a href="/index.html" class="flex items-center space-x-3">
-                    <img src="https://placehold.co/120x40/667eea/white?text=AuctionGh" alt="Auction Ghana" class="h-10">
-                </a>
+            <div class="flex items-center">
+                <!-- Logo -->
+                <div class="flex-1">
+                    <a href="/index.html" class="flex items-center space-x-3">
+                        <img src="/assests/SVG/logo-white.svg" alt="Auction Ghana" class="h-16">
+                        <span class="text-white font-bold text-lg" style="font-family: 'Noto Sans', sans-serif;">Auction Ghana</span>
+                    </a>
+                </div>
 
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="/index.html" class="hover:text-yellow-400 transition-colors">Home</a>
-                    <a href="/pages/auction.html" class="hover:text-yellow-400 transition-colors">Auctions</a>
-                    <a href="/pages/Sellpage.html" class="text-yellow-400 transition-colors">Sell</a>
-                    <a href="/pages/about.html" class="hover:text-yellow-400 transition-colors">About</a>
-                    <a href="/pages/Contact.html" class="hover:text-yellow-400 transition-colors">Contact</a>
+                <!-- Desktop Navigation - Centered -->
+                <div class="hidden lg:flex items-center space-x-8 flex-1 justify-center">
+                    <a href="/index.html" class="hover-text-primary transition-colors">Home</a>
+                    <a href="/pages/auction.html" class="hover-text-primary transition-colors">Auctions</a>
+                    <a href="/pages/Sellpage.html" class="text-primary transition-colors">Sell</a>
+                    <a href="/pages/about.html" class="hover-text-primary transition-colors">About</a>
+                    <a href="/pages/Contact.html" class="hover-text-primary transition-colors">Contact</a>
+                </div>
+
+                <!-- Login/Signup - Right -->
+                <div class="hidden lg:flex items-center space-x-4 flex-1 justify-end">
                     <a href="/pages/login.html" class="border border-white hover:bg-white hover:text-black px-4 py-2 rounded-lg transition-all">Login</a>
                     <a href="/pages/signup.html" class="gradient-bg text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">Sign Up</a>
                 </div>
 
-                <button id="mobile-toggle" class="lg:hidden text-white focus:outline-none">
+                <!-- Mobile Menu Button -->
+                <button id="mobile-toggle" class="lg:hidden text-white focus:outline-none ml-4">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
 
+            <!-- Mobile Menu -->
             <div id="mobile-menu" class="lg:hidden">
                 <div class="pt-4 pb-2 space-y-3">
-                    <a href="/index.html" class="block hover:text-yellow-400 transition-colors py-2">Home</a>
-                    <a href="/pages/auction.html" class="block hover:text-yellow-400 transition-colors py-2">Auctions</a>
-                    <a href="/pages/Sellpage.html" class="block text-yellow-400 transition-colors py-2">Sell</a>
-                    <a href="/pages/about.html" class="block hover:text-yellow-400 transition-colors py-2">About</a>
-                    <a href="/pages/Contact.html" class="block hover:text-yellow-400 transition-colors py-2">Contact</a>
+                    <a href="/index.html" class="block hover-text-primary transition-colors py-2">Home</a>
+                    <a href="/pages/auction.html" class="block hover-text-primary transition-colors py-2">Auctions</a>
+                    <a href="/pages/Sellpage.html" class="block text-primary transition-colors py-2">Sell</a>
+                    <a href="/pages/about.html" class="block hover-text-primary transition-colors py-2">About</a>
+                    <a href="/pages/Contact.html" class="block hover-text-primary transition-colors py-2">Contact</a>
                     <div class="pt-3 flex flex-col space-y-2">
                         <a href="/pages/login.html" class="border border-white hover:bg-white hover:text-black px-4 py-2 rounded-lg transition-all text-center">Login</a>
                         <a href="/pages/signup.html" class="gradient-bg text-white px-4 py-2 rounded-lg text-center">Sign Up</a>
@@ -99,7 +112,7 @@
                 <!-- Step 1: Item Details -->
                 <div class="form-step active" id="step-1">
                     <h2 class="text-3xl font-bold mb-6 flex items-center">
-                        <i class="fas fa-info-circle mr-3 text-purple-400"></i>
+                        <i class="fas fa-info-circle mr-3 text-secondary"></i>
                         Item Details
                     </h2>
                     
@@ -150,14 +163,14 @@
                 <!-- Step 2: Upload Images -->
                 <div class="form-step hidden" id="step-2">
                     <h2 class="text-3xl font-bold mb-6 flex items-center">
-                        <i class="fas fa-images mr-3 text-purple-400"></i>
+                        <i class="fas fa-images mr-3 text-secondary"></i>
                         Upload Photos
                     </h2>
                     
                     <div class="mb-4">
                         <p class="text-gray-300 mb-4">Add high-quality photos of your item. First photo will be the main image.</p>
                         <div class="image-upload-area" id="upload-area">
-                            <i class="fas fa-cloud-upload-alt text-5xl text-purple-400 mb-4"></i>
+                            <i class="fas fa-cloud-upload-alt text-5xl text-secondary mb-4"></i>
                             <p class="text-xl mb-2">Drag and drop images here</p>
                             <p class="text-gray-400 mb-4">or</p>
                             <button type="button" onclick="document.getElementById('itemImages').click()" class="gradient-bg text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
@@ -182,7 +195,7 @@
                 <!-- Step 3: Pricing and Duration -->
                 <div class="form-step hidden" id="step-3">
                     <h2 class="text-3xl font-bold mb-6 flex items-center">
-                        <i class="fas fa-dollar-sign mr-3 text-purple-400"></i>
+                        <i class="fas fa-dollar-sign mr-3 text-secondary"></i>
                         Pricing & Duration
                     </h2>
                     
@@ -221,7 +234,7 @@
                         
                         <div class="bg-white bg-opacity-5 rounded-lg p-6 border border-white border-opacity-20">
                             <h3 class="font-semibold mb-3 flex items-center">
-                                <i class="fas fa-info-circle mr-2 text-blue-400"></i>
+                                <i class="fas fa-info-circle mr-2 text-accent"></i>
                                 Seller Fees
                             </h3>
                             <div class="space-y-2 text-gray-300">
@@ -254,7 +267,7 @@
                 <!-- Step 4: Review and Submit -->
                 <div class="form-step hidden" id="step-4">
                     <h2 class="text-3xl font-bold mb-6 flex items-center">
-                        <i class="fas fa-check-circle mr-3 text-green-400"></i>
+                        <i class="fas fa-check-circle mr-3 text-accent"></i>
                         Review Your Listing
                     </h2>
                     
@@ -268,7 +281,7 @@
                         
                         <div class="bg-blue-500 bg-opacity-20 border border-blue-500 border-opacity-50 rounded-lg p-6">
                             <div class="flex items-start">
-                                <i class="fas fa-shield-alt text-blue-400 text-2xl mr-4 mt-1"></i>
+                                <i class="fas fa-shield-alt text-accent text-2xl mr-4 mt-1"></i>
                                 <div>
                                     <h3 class="font-semibold mb-2">Our Seller Protection</h3>
                                     <p class="text-gray-300 text-sm">Your listing is protected by our secure platform. We handle payments, verify buyers, and ensure safe transactions.</p>
@@ -507,5 +520,13 @@
                         // Here you would typically send data to your backend
                     });
                 </script>
-            </body>
-            </html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>

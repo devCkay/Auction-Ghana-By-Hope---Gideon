@@ -3,20 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auction House - Industry Standard</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://placehold.co/32" sizes="32x32">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
+    <title>Contact Us - Auction House</title>
+    <link rel="icon" type="image/svg+xml" href="/assests/SVG/logo-green.svg" sizes="any">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="/css/contact.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link href="/css/main.css" rel="stylesheet">
 </head>
-<body class="text-white">
+<body class="text-white bg-black">
     <!-- Video Background -->
     <video autoplay muted loop class="video-background">
         <source src="/assests/watch on the hand.mp4" type="video/mp4">
@@ -25,52 +20,54 @@
     <!-- Dark Overlay -->
     <div class="overlay"></div>
 
-    <!-- Header with Navigation -->
-    <header class="header-gradient">
-        <div class="container mx-auto flex justify-between items-center p-4 flex-wrap">
-            <!-- Logo -->
-            <h1 class="text-2xl font-bold text-black-400 flex-shrink-0">Auction House</h1>
-            
-            <!-- Navigation Menu -->
-            <nav class="flex items-center space-x-6 mt-4 md:mt-0">
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+    <!-- Streamlined Responsive Header -->
+    <header class="sticky top-0 z-50 bg-black bg-opacity-90 border-b border-white border-opacity-20 backdrop-blur-sm">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center">
+                <!-- Logo -->
+                <div class="flex-1">
+                    <a href="/index.html" class="flex items-center space-x-3">
+                        <img src="/assests/SVG/logo-white.svg" alt="Auction Ghana" class="h-16">
+                        <span class="text-white font-bold text-lg" style="font-family: 'Noto Sans', sans-serif;">Auction Ghana</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation - Centered -->
+                <div class="hidden lg:flex items-center space-x-8 flex-1 justify-center">
+                    <a href="/index.html" class="hover:text-yellow-400 transition-colors">Home</a>
+                    <a href="/pages/auction.html" class="hover:text-yellow-400 transition-colors">Auctions</a>
+                    <a href="/pages/Sellpage.html" class="hover:text-yellow-400 transition-colors">Sell</a>
+                    <a href="/pages/about.html" class="hover:text-yellow-400 transition-colors">About</a>
+                    <a href="/pages/Contact.html" class="text-yellow-400 transition-colors">Contact</a>
+                </div>
+
+                <!-- Login/Signup - Right -->
+                <div class="hidden lg:flex items-center space-x-4 flex-1 justify-end">
+                    <a href="/pages/login.html" class="border border-white hover:bg-white hover:text-black px-4 py-2 rounded-lg transition-all">Login</a>
+                    <a href="/pages/signup.html" class="gradient-bg text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">Sign Up</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-toggle" class="lg:hidden text-white focus:outline-none ml-4">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
-                
-                <!-- Desktop Menu -->
-                <ul class="hidden md:flex space-x-6">
-                    <li><a href="/index.html" class="hover:text-gray-900">Home</a></li>
-                    <li><a href="/pages/auction.html" class="hover:text-gray-900">Auctions</a></li>
-                    <li><a href="/pages/Sellpage.html" class="hover:text-gray-900">Sell</a></li>
-                    <li><a href="/pages/about.html" class="hover:text-gray-900">About</a></li>
-                    <li><a href="/pages/Contact.html" class="hover:text-gray-900">Contact</a></li>
-                </ul>
-                
-                <!-- Mobile Menu -->
-                <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 right-0 bg-gray-900 z-50 p-4">
-                    <ul class="space-y-4">
-                        <li><a href="/index.html" class="block hover:text-yellow-400">Home</a></li>
-                        <li><a href="/pages/auction.html" class="block hover:text-yellow-400">Auctions</a></li>
-                        <li><a href="/pages/Sellpage.html" class="block hover:text-yellow-400">Sell</a></li>
-                        <li><a href="/pages/about.html" class="block hover:text-yellow-400">About</a></li>
-                        <li><a href="/pages/Contact.html" class="block hover:text-yellow-400">Contact</a></li>
-                        <li>
-                            <a href="/pages/signup.html" class="gradient-bg text-white px-4 py-2 rounded-lg inline-block">Sign Up</a>
-                        </li>
-                    </ul>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden">
+                <div class="pt-4 pb-2 space-y-3">
+                    <a href="/index.html" class="block hover:text-yellow-400 transition-colors py-2">Home</a>
+                    <a href="/pages/auction.html" class="block hover:text-yellow-400 transition-colors py-2">Auctions</a>
+                    <a href="/pages/Sellpage.html" class="block hover:text-yellow-400 transition-colors py-2">Sell</a>
+                    <a href="/pages/about.html" class="block hover:text-yellow-400 transition-colors py-2">About</a>
+                    <a href="/pages/Contact.html" class="block text-yellow-400 transition-colors py-2">Contact</a>
+                    <div class="pt-3 flex flex-col space-y-2">
+                        <a href="/pages/login.html" class="border border-white hover:bg-white hover:text-black px-4 py-2 rounded-lg transition-all text-center">Login</a>
+                        <a href="/pages/signup.html" class="gradient-bg text-white px-4 py-2 rounded-lg text-center">Sign Up</a>
+                    </div>
                 </div>
-                
-                <!-- Dark Mode Toggle -->
-                <button id="dark-mode-toggle" class="p-4 rounded-full bg-white bg-opacity-20 ml-4">
-                    <i class="fas fa-moon text-white"></i>
-                    <i class="fas fa-sun text-white hidden"></i>
-                </button>
-                
-                <!-- Sign-Up Button (Desktop) -->
-                <a href="#" class="gradient-bg text-white px-4 py-2 rounded-lg flex-shrink-0 hidden md:block">Sign Up</a>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Contact Page Content -->
@@ -229,7 +226,23 @@
         </div>
     </footer>
 
-    <!-- Single script tag at the end -->
-    <script src="/scripts/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+    </script>
 </body>
 </html>
